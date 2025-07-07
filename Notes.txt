@@ -1,0 +1,19 @@
+CREATE DATABASE NOTE_APP;
+USE NOTE_APP;
+
+CREATE TABLE user (
+    id int auto_increment primary key,
+    username varchar(255) unique not null,
+    email varchar(255) unique not null,
+    contact varchar(20),
+    password varchar(255)  not null,
+    profile_img varchar(255)
+);
+
+CREATE TABLE notes(
+    note_id int auto_increment primary key;
+    user_id int;
+    note text not null;
+    date date,
+    foreign key (user_id) references user(id)
+);
